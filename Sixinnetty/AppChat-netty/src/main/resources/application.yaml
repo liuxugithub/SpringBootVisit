@@ -1,0 +1,39 @@
+
+## tomcat 配置
+server:
+  port: 8088
+  tomcat:
+    uri-encoding: utf-8
+
+  servlet:
+    context-path: /sixin
+### spring 配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sixin?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: a522008!
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      pool-name: DatebookHikariCP
+### mybatis配置
+mybatis:
+  type-aliases-package: godday.xin.sixin.pojo
+  mapper-locations: classpath:mapper/*.xml
+
+mapper:
+  mappers: godday.xin.sixin.utils.MyMapper
+  not-empty: false
+  identity: MYSQL
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image:
+    width: 80
+    height: 80
+  tracker-list: 192.168.0.111:22122
